@@ -58,7 +58,7 @@ app.listen(PORT, () => {
 });
 
 async function fetchAQIFeed(city) {
-  const url = `${AQI_URI}feed/${city}/?token=${process.env.AQI_TOKEN}`;
+  const url = `${AQI_URI}feed/${city}/?token=${TOKEN}`;
   const response = await fetch(url);
   const data = await response.json();
   if (data.data === "Unknown station") {
@@ -68,7 +68,7 @@ async function fetchAQIFeed(city) {
 }
 
 async function fetchAQISearch(keyword) {
-  const url = `${AQI_URI}search/?token=${process.env.AQI_TOKEN}&keyword=${keyword}`;
+  const url = `${AQI_URI}search/?token=${TOKEN}&keyword=${keyword}`;
   const response = await fetch(url);
   const data = await response.json();
   return data;
